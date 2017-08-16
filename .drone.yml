@@ -1,0 +1,14 @@
+pipeline:
+  Run Something:
+    image: busybox
+    commands:
+      - echo 'hello'
+
+services:
+  postgres:
+    image: postgres:9.3.14
+    environment:
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pgpass
+    ports:
+      - '15432:5432'
