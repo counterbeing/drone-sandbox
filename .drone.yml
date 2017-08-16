@@ -1,14 +1,13 @@
 pipeline:
-  Run Something:
-    image: busybox
+  test:
+    image: golang
     commands:
-      - echo 'hello'
+      - go get
+      - go test
 
 services:
-  postgres:
-    image: postgres:9.6
+  database:
+    image: postgres
     environment:
-      POSTGRES_USER: pguser
-      POSTGRES_PASSWORD: pgpass
-    ports:
-      - '15432:5432'
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=test
