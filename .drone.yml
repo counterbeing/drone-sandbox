@@ -21,8 +21,8 @@ pipeline:
 services:
   postgres:
     image: postgres
-    # environment:
-    #   - POSTGRES_USER=pguser
+    environment:
+      - POSTGRES_USER=pguser
     #   - POSTGRES_PASSWORD=pgpass
     # ports:
     #   - '15432:5432'
