@@ -13,19 +13,19 @@
 #       - POSTGRES_DB=test
 
 pipeline:
-
-
-# services:
-  postgres:
-    image: postgres
-    detach: true
-    environment:
-      - POSTGRES_USER=pguser
-      - POSTGRES_PASSWORD=pgpass
-    # ports:
-    #   - '15432:5432'
-
   Run Something:
     image: busybox
     commands:
       - echo 'hello'
+
+services:
+  postgres:
+    image: redis
+    detach: true
+    # environment:
+    #   - POSTGRES_USER=pguser
+    #   - POSTGRES_PASSWORD=pgpass
+    # ports:
+    #   - '15432:5432'
+
+
