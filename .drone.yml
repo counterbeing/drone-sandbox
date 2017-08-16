@@ -1,13 +1,28 @@
+# pipeline:
+#   test:
+#     image: golang
+#     commands:
+#       - go get
+#       - go test
+
+# services:
+#   database:
+#     image: postgres
+#     environment:
+#       - POSTGRES_USER=postgres
+#       - POSTGRES_DB=test
+
 pipeline:
-  test:
-    image: golang
+  Run Something:
+    image: busybox
     commands:
-      - go get
-      - go test
+      - echo 'hello'
 
 services:
-  database:
-    image: postgres
+  postgres:
+    image: postgres:9.3.14
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_DB=test
+      - POSTGRES_USER=pguser
+      - POSTGRES_PASSWORD=pgpass
+    ports:
+      - '15432:5432'
