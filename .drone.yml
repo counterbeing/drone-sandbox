@@ -22,9 +22,9 @@ services:
   postgres:
     image: postgres
     environment:
-      # - POSTGRES_USER=postgres
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=pgpass
-    # ports:
-    #   - '15432:5432'
+    ports:
+      - '15432:5432'
 
 
