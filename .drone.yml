@@ -13,18 +13,17 @@
 #       - POSTGRES_DB=test
 
 pipeline:
-  Run Something:
-    image: busybox
+  ping:
+    image: postgres
     commands:
-      - echo 'hello'
+      - sleep 10
+      - |
+        psql -U postgres -d test -h database \
+          -c "SELECT * FROM pg_catalog.pg_tables;"
 
 services:
-  postgres:
+  database:
     image: postgres
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=pgpass
-    ports:
-      - '15432:5432'
-
-
