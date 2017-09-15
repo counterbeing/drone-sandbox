@@ -15,8 +15,11 @@
 pipeline:
   ping:
     image: postgres
+    environment:
+      - PGUSER=postgres
+      - PGPASSWORD=pgpass
     commands:
-      - sleep 10
+      - sleep 20
       - |
         psql -U postgres -d test -h database \
           -c "SELECT * FROM pg_catalog.pg_tables;"
