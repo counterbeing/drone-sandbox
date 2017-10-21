@@ -20,8 +20,9 @@ pipeline:
       - PGPASSWORD=pgpass
     commands:
       - sleep 20
+      - createdb -U postgres -h database  -e test
       - |
-        psql -U postgres -d test -h database \
+        psql -U postgres test -h database \
           -c "SELECT * FROM pg_catalog.pg_tables;"
 
 services:
